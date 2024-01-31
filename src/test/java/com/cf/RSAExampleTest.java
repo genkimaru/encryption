@@ -1,3 +1,5 @@
+package com.cf;
+
 import com.cf.RSAExample;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,11 +15,11 @@ import java.security.NoSuchAlgorithmException;
 public class RSAExampleTest {
 
 
-    private  RSAExample rsaExample;
+    private  static RSAExample rsaExample;
     public String secretMessage = "Baeldung secret message";
 
     @BeforeAll
-     void generatePariFiles() throws IOException {
+     static void generatePariFiles() throws IOException {
         rsaExample = new RSAExample();
         rsaExample.generatePairFiles();
     }
@@ -26,7 +28,6 @@ public class RSAExampleTest {
         String encryptMessage = rsaExample.encrypt(secretMessage);
         String decryptMessage = rsaExample.decrypt();
         Assertions.assertEquals(secretMessage,decryptMessage);
-
     }
 
 }
